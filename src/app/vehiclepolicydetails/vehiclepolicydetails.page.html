@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title text-center>VEHICLE POLICY DETAILS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="showwheniwant">
+
+  <form [formGroup]="vehiclepolicyform">
+  
+    <ion-item>
+       <ion-label>Date of Registration</ion-label>
+       <ion-datetime displayFormat="DD-MM-YYYY " formControlName="todayregistration" placeholder="Date of Registration"></ion-datetime>
+    </ion-item>
+  
+    <ion-item>
+       <ion-label>Date of Sale</ion-label>
+       <ion-datetime displayFormat="DD-MM-YYYY "  formControlName="todaysale" placeholder="Date of Sale"></ion-datetime>          
+   </ion-item>
+  
+      <!-- <ion-item >
+         
+          <ion-input type="text" formControlName="make" placeholder="Make" placeholder="Make"></ion-input>
+        </ion-item> -->
+
+        <ion-item lines="none">
+            <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Make"  formControlName="make">
+                </mat-form-field>
+              </ion-item>
+  
+              <ion-item lines="none">
+                  <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="policy" placeholder="Policy No">
+                      </mat-form-field>
+                    </ion-item>
+
+                    <ion-item lines="none">
+                        <mat-form-field class="example-full-width">
+                              <input matInput type="text" formControlName="typepolicy" placeholder="Type of Policy">
+                            </mat-form-field>
+                          </ion-item>
+  
+         
+                          <ion-item lines="none">
+                              <mat-form-field class="example-full-width">
+                                    <input matInput type="text" formControlName="vehicle" placeholder="Vehicle Class">
+                                  </mat-form-field>
+                                </ion-item>
+            
+                                <ion-item lines="none">
+                                    <mat-form-field class="example-full-width">
+                                          <input matInput type="text" formControlName="idv" placeholder="IDV">
+                                        </mat-form-field>
+                               </ion-item>
+                               <ion-item lines="none">
+                                  <mat-form-field class="example-full-width">
+                                        <input matInput type="number" formControlName="model" placeholder="Model">
+                                      </mat-form-field>
+                                    </ion-item>
+            
+               
+                  <ion-item >
+                     <ion-label>Period Form</ion-label>
+                     <ion-datetime displayFormat="DD-MM-YYYY " formControlName="todayto"></ion-datetime> 
+                   </ion-item>
+                   <ion-item>
+                       <ion-label>Period To</ion-label>
+                     <ion-datetime displayFormat="DD-MM-YYYY " formControlName="todayfrom"></ion-datetime>
+                 </ion-item>
+                 <ion-item lines="none">
+                    <mat-form-field class="example-full-width">
+                          <input matInput type="text" formControlName="coverages" placeholder="Coverages">
+                        </mat-form-field>
+                      </ion-item>
+                    <!-- <ion-item >
+                       <ion-label>Coverages</ion-label>
+                        <ion-input type="text" formControlName="coverages" placeholder="Coverages"></ion-input>
+                    </ion-item> -->
+                    <ion-item>
+                        <ion-label>IMT</ion-label>
+                        <ion-datetime displayFormat="DD-MM-YYYY " formControlName="todayimt"></ion-datetime>
+                      </ion-item>
+
+<!-- <div text-center>
+ <button ion-button round  icon-left color="primary" (click)="gotoinsureddetails()" >SAVE & NEXT</button>
+</div> -->
+<br/><br/>
+<div text-center>
+ <button mat-raised-button color="primary" (click)="gotocase1()">BACK</button>&nbsp;&nbsp;
+ <button mat-raised-button color="primary" (click)="gotoinsureddetails()">SAVE & NEXT</button>
+</div>
+  </form>
+  
+  <!-- </ion-list>
+  </ion-card-content> -->
+ 
+
+</ion-content>
+

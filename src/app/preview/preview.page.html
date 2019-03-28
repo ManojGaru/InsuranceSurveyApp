@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>PREVIEW</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-item  text-wrap *ngFor="let item of imageList">
+    <ion-thumbnail slot="start">
+    
+     <img [src]="item.image" />
+    </ion-thumbnail>
+    <ion-label>
+      No Name
+      
+    </ion-label>
+    
+  </ion-item> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of imageList">
+        <img [src]="item.image" (click)="show(item.image)"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

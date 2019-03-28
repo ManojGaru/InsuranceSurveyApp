@@ -1,0 +1,9 @@
+{
+    "/api": {
+       "target": "http://surveyorweb.innovious-websolutions.com",
+       "changeOrigin": true,
+       "secure": false,
+       "logLevel": "debug"
+     }
+   }
+

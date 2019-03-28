@@ -1,0 +1,72 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>registration</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="background">
+
+    <!-- <h1 text-center>Insurance Surveyor</h1> 
+
+    <ion-title text-center><img style = "width: 100px; height: 100px;" src = "assets/imgs/logo1.png"></ion-title> 
+    -->
+   <ion-card>
+     <ion-header text-center>
+        <h2>Registation Form</h2>
+     </ion-header> 
+  </ion-card>
+
+
+<form [formGroup]="Registationform">
+
+    <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+              <input matInput formControlName="firstname" placeholder="Firstname" >
+            </mat-form-field>
+          </ion-item>
+ 
+          <ion-item lines="none">
+              <mat-form-field class="example-full-width">
+                    <input matInput type="text" formControlName="lastname" placeholder="Lastname" >
+                  </mat-form-field>
+                </ion-item>
+                <ion-item lines="none">
+                    <mat-form-field class="example-full-width">
+                          <input matInput type="email" formControlName="email" placeholder="Email" >
+                        </mat-form-field>
+              </ion-item>
+              <ion-item lines="none">
+                  <mat-form-field class="example-full-width">
+                        <input matInput type="number" formControlName="number" placeholder="Contact Number" >
+                      </mat-form-field>
+            </ion-item>
+            <ion-item lines="none">
+                <mat-form-field class="example-full-width">
+                      <input matInput type="text" formControlName="description" placeholder="Description" >
+                    </mat-form-field>
+          </ion-item>
+
+          <ion-item lines="none">
+              <mat-form-field class="example-full-width">
+                    <input matInput type="text" formControlName="username" placeholder="Username" >
+                  </mat-form-field>
+        </ion-item>
+
+     
+        <ion-item lines="none">
+            <mat-form-field class="example-full-width">
+                  <input matInput type="password" formControlName="password" placeholder="Psassword" >
+                </mat-form-field>
+      </ion-item>
+
+          
+<div text-center>
+    <button mat-raised-button color="primary" item-right (click)="registration()" outline block>Registation</button>
+</div>
+              
+</form>
+
+
+
+
+</ion-content>

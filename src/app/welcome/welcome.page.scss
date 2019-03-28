@@ -1,0 +1,69 @@
+ion-header {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    }
+    .show-background {
+        border-style: none;
+        background: var(--ion-color-primary);
+    }
+  
+    ion-toolbar {
+        --background: transparent;
+        --ion-color-base: transparent !important;
+        }
+   .divcontent{
+       background-image: url('../../assets/imgs/Life-Insurance.png.jpg');       
+      // min-height: 250px;
+       
+      // width: 360px;
+       background-size: cover;
+    //    opacity: 0.5;
+    //    filter: alpha(opacity=30); 
+       background-color: rgba(248, 247, 216, 0.7);
+   }  
+   img{
+    object-fit: cover;
+
+   } 
+.btn_menu{
+    color: white;
+}
+.mat_grp{
+    color: #00bcd4;
+}
+#avt{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+   // background-color: #00bcd4;
+   border: 1px solid #2cb1c4;
+}
+.crd{
+    height: 60px;
+}
+.mat-card {
+    padding: 10px!important;
+  //  background-color: #122952;
+    border-radius: 1px;
+}
+table {
+    width: 100%;
+  }
+  .item-divider{
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 0px;
+    z-index: 3 !important;
+}
+// .list{
+//     overflow-y: scroll;
+// }
+
+// @media screen and (max-height: 600px) {
+
+// }
+
+.mat-tab-body-wrapper{
+    height: 400px!important;
+    overflow: scroll!important;
+}

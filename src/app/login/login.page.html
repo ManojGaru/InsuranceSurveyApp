@@ -1,0 +1,104 @@
+
+
+
+
+<ion-content>
+
+  
+
+    <h1 style="padding-top:15%;color:white;font-size: 32px;" text-center>Insurance Surveyor</h1> 
+ 
+    <ion-title text-center><img style="height:100px;width:100px;margin-top:10%;" src = "../../assets/imgs/primarylogo.png"></ion-title>  
+   <!-- <ion-card>
+   
+ 
+      <ion-card-content>
+        <ion-list no-lines> -->
+    
+    
+  <form [formGroup] = "form" style="margin:8%;font: inherit;color:white;padding-top:5%;" (ngSubmit)="login()">
+ 
+   <!-- <ion-item>
+     <ion-input type ="text" formControlName="username" placeholder="Enter Username"></ion-input>
+   </ion-item> -->
+
+      <ion-item lines="none">
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput type ="text" formControlName="username" placeholder="Enter Username">
+      </mat-form-field> -->
+      <mat-form-field class="example-full-width">
+          <input matInput type ="text" placeholder="Enter Username" formControlName="username">
+           <mat-error *ngIf="username.hasError('required')">
+              Please enter Your <strong>Username</strong>
+          </mat-error>
+        </mat-form-field>
+      </ion-item>
+
+   <!-- <ion-item>
+       <ion-input type ="password" formControlName="password" placeholder="Password"></ion-input>
+     </ion-item> -->
+
+      <ion-item lines="none">
+      <!-- <mat-form-field class="example-full-width">
+        <input matInput type ="password" formControlName="password" placeholder="Password">
+      </mat-form-field> -->
+      <mat-form-field class="example-full-width">
+          <input matInput type ="password" placeholder="Password" formControlName="password">
+          <mat-error *ngIf="password.hasError('required')">
+              Please enter Your <strong>Password</strong>
+          </mat-error> 
+        </mat-form-field>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Select</ion-label>
+        <ion-select value="CLAIMS" okText="Okay" cancelText="Dismiss" formControlName="purpose">
+          <ion-select-option value="claim">CLAIMS</ion-select-option>
+          <ion-select-option value="investigation">INVESTIGATION</ion-select-option>
+          <ion-select-option value="valuation">VALUATION</ion-select-option>
+          <ion-select-option value="preinspection">PREINSPECTION</ion-select-option>
+        </ion-select>
+      </ion-item>
+   
+    <br/>
+
+      <div text-center>
+        <!-- <button mat-raised-button item-right color="primary" (click)="login()">Login</button> -->
+        <ion-button style="width: 50%;height: 50px;font-size: 18px;" shape="round" color="primary" (click)="login()">Login</ion-button>
+      </div>
+
+  </form>
+ <!-- <p text-center >
+   <button  ion-button (click)="login()" full style="color:#000;background-color: #000000;
+   text-transform: none;">Login</button>
+ </p> -->
+  
+<!-- 
+  <p text-center>
+  Don't have an account
+  </p>
+
+  <p text-center class="register"  (click)="register()">
+   <a>Sign Up for free</a>
+  </p> -->
+ 
+ <!-- <b>OR</b>
+ 
+ <button ion-button color="primary" ion-left block>
+ <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;&nbsp;
+ <div>Login with facebook</div>
+ </button>
+ 
+ <br/>
+ 
+ <button ion-button color="danger" ion-left block>
+ <ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;&nbsp;
+ <div>Login with facebook</div>
+ </button> -->
+ 
+ <!-- </ion-list>
+ </ion-card-content>
+  </ion-card> -->
+ 
+ </ion-content>
+

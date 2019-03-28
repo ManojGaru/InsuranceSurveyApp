@@ -1,0 +1,75 @@
+<ion-header>
+   <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+      WELCOME
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div>
+  <div class="divcontent">
+
+         <ion-item>
+            <ion-label>Select Stage</ion-label>
+            <ion-select okText="Okay" cancelText="Dismiss"  (ionChange)="getStageResultData($event.target.value)">
+              <ion-select-option [value]="data.id" *ngFor="let data of select" >{{data.name}}</ion-select-option>
+ 
+
+            </ion-select>
+            </ion-item>
+         
+        
+      <canvas #doughnutCanvas></canvas> 
+     
+  
+   </div>
+   
+   <!-- <mat-tab-group id="mat_grp">
+      <mat-tab label="New">
+        <ion-list *ngFor="let item of cradContent" class="list" >
+          <ion-item>
+            <div id="avt"> <i class="fa fa-{{item.icon}}" style="font-size:30px;color:red;margin-top: 8px; margin-left: 10px;"></i></div>&nbsp;&nbsp;&nbsp;
+              <p>{{item.name}}</p>
+            </ion-item>
+        </ion-list>
+      </mat-tab>
+
+      <mat-tab label="Pending">
+        <ion-list *ngFor="let item of cradContent" class="list" >
+          <ion-item>
+            <div id="avt"> <i class="fa fa-{{item.icon}}" style="font-size:30px;color:red;margin-top: 8px; margin-left: 10px;"></i></div>&nbsp;&nbsp;&nbsp;
+              <p>{{item.name}}</p>
+          </ion-item>
+        </ion-list>
+      </mat-tab>
+
+      <mat-tab label="Upcoming">
+        <ion-list *ngFor="let item of cradContent" class="list" >
+          <ion-item>
+            <div id="avt"> <i class="fa fa-{{item.icon}}" style="font-size:30px;color:red;margin-top: 8px; margin-left: 10px;"></i></div>&nbsp;&nbsp;&nbsp;
+              <p>{{item.name}}</p>
+          </ion-item>
+        </ion-list>
+        </mat-tab>
+
+  </mat-tab-group> -->
+    
+ 
+
+<!-- <br/><br/>
+<div id="crd" (click)="gotoCase1()">
+<img  src="../../assets/imgs/CASE-1.png" />
+
+</div>
+<div id="crd" (click)="gotocase2()">
+<img  src="../../assets/imgs/CASE-2.png"/>
+</div>
+<div id="crd">
+<img  src="../../assets/imgs/CASE-3.png"/>
+</div> -->
+</div>
+</ion-content>

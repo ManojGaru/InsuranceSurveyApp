@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>TODO List</ion-title>
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content padding>
+
+  <ion-item  text-wrap *ngFor="let list of toDOLists" (click)="itemClicked(list)">
+    <ion-thumbnail slot="start">
+     <!--  <ion-img id="myImage" [src]="url"></ion-img> -->
+      <img src="../../assets/imgs/create.png" /> 
+     <!-- <ion-icon slot="icon-only" name="create"></ion-icon> -->
+    </ion-thumbnail>
+    
+    <ion-label>
+      <h2 style="width:223px; float: left">
+        <p style="font-size: 18px;">Claim No : {{list.insurer_claim_ref_no | slice:0:10}}</p> 
+        <p style="font-size: 18px;">Location : {{list.insurer_address}}</p>
+        </h2>
+      
+    </ion-label>
+   
+    
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+   
+  </ion-item>
+
+
+
+</ion-content>

@@ -1,0 +1,311 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>CASE 2</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ng-progress [positionUsing]="'marginLeft'" [minimum]="0.15" [maximum]="1" [speed]="200" [showSpinner]="false"
+  [direction]="'rightToLeftIncreased'" [color]="'red'" [trickleSpeed]="250" [thick]="false" [ease]="'linear'">
+</ng-progress>
+<ion-content padding>
+
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <!--  <ion-img id="myImage" [src]="url"></ion-img> -->
+      <img [src]="url_docs" />
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Doc's
+
+    </ion-label>
+    <ion-button slot="end" fill="clear" (click)="Openportion()">
+      <ion-icon slot="icon-only" name="browsers"></ion-icon>
+    </ion-button>
+    <ion-button slot="end" fill="clear" (click)="viewDocFiles()">
+      <ion-icon slot="icon-only" name="eye"></ion-icon>
+    </ion-button>
+    
+  </ion-item>
+  <ion-item *ngIf="portionshow">
+      <ion-input placeholder="Enter Input" [(ngModel)]="purposedoc"></ion-input>
+
+      <ion-button slot="end" fill="clear" (click)="finalupload()">
+          UPLOAD
+        </ion-button>
+    </ion-item>
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <ion-img id="myImage" [src]="url_initial"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Intial / Crash - Photos
+
+    </ion-label>
+    <ion-button slot="end" fill="clear" (click)="InitialPhotoToggle()">
+      <ion-icon slot="icon-only" name="expand"></ion-icon>
+    </ion-button>
+    <!-- <ion-button slot="end" fill="clear" (click)="viewImageFiles()">
+      <ion-icon slot="icon-only" name="eye"></ion-icon>
+    </ion-button> -->
+  </ion-item>
+
+  <ion-list *ngIf="isInitialOpen">
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_no_plate"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Number Plate Img
+
+      </ion-label>
+      <span>
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','no_plate')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','no_plate')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('no_plate')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_chassi_no"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Chassis No Img
+
+      </ion-label>
+      <span >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','chassi_no')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','chassi_no')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('chassi_no')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_speedometer"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Speedometer Img
+
+      </ion-label>
+      <span >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','speedometer')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','speedometer')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('speedometer')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_front_view"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Front View
+
+      </ion-label>
+      <span >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','front_view')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','front_view')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('front_view')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_left_view"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Left View
+
+      </ion-label>
+      <span >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','left_view')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','left_view')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('left_view')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_rear_view"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Rear View
+
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','rear_view')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','rear_view')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('rear_view')"></ion-icon>
+      </span>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_right_view"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        Right View
+
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','right_view')"></ion-icon>
+    
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','right_view')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('right_view')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_rh_front_corner"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        RH Front Corner
+
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','rh_front_corner')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','rh_front_corner')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('rh_front_corner')"></ion-icon>
+      </span>
+    </ion-item>
+
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_lh_front_corner"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        LH Front Corner
+
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','lh_front_corner')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','lh_front_corner')"></ion-icon>
+    
+        <ion-icon slot="icon-only" name="eye"  (click)="viewImageFiles('lh_front_corner')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_lh_rear_corner"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        LH Rear Corner
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','lh_rear_corner')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','lh_rear_corner')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('lh_rear_corner')"></ion-icon>
+      </span>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-thumbnail slot="start">
+        <ion-img id="myImage" [src]="url_rh_rear_corner"></ion-img>
+      </ion-thumbnail>
+      <ion-label class="label_lbl">
+        RH Rear Corner
+
+      </ion-label>
+      <span slot="end" fill="clear" >
+        <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','rh_rear_corner')"></ion-icon>
+      
+        <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','rh_rear_corner')"></ion-icon>
+     
+        <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('rh_rear_corner')"></ion-icon>
+      </span>
+    </ion-item>
+  </ion-list>
+
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <ion-img id="myImage" [src]="url_keep_open"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Keep Open
+
+    </ion-label>
+    <span>
+      <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','keep_open')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','keep_open')"></ion-icon>
+    
+      <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('keep_open')"></ion-icon>
+    </span>
+    
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <ion-img id="myImage" [src]="url_cut_open"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Cut Open
+
+    </ion-label>
+    <span >
+      <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','cut_open')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','cut_open')"></ion-icon>
+      
+      <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('cut_open')"></ion-icon>
+    </span>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <ion-img id="myImage" [src]="url_before_paint"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Before Paint
+
+    </ion-label>
+    <span>
+      <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','before_paint')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','before_paint')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('before_paint')"></ion-icon>
+    </span>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-thumbnail slot="start">
+      <ion-img id="myImage" [src]="url_reinspection"></ion-img>
+    </ion-thumbnail>
+    <ion-label class="label_lbl">
+      Reinspection
+
+    </ion-label>
+    <span>
+      <ion-icon slot="icon-only" name="cloud-upload" (click)="startUpload('PHOTOLIBRARY','reinspection')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="camera" (click)="startUpload('PICTURE','reinspection')"></ion-icon>
+   
+      <ion-icon slot="icon-only" name="eye" (click)="viewImageFiles('reinspection')"></ion-icon>
+    </span>
+  </ion-item>
+  <!--  -->
+
+  
+
+
+  <br /><br />
+
+  <div text-center>
+    <button mat-raised-button color="primary" (click)="gotoadmisabilitycheck()">BACK</button> &nbsp;&nbsp;
+    <button mat-raised-button color="primary" (click)="gotowelcome()">SAVE & Proceed</button>
+  </div>
+
+</ion-content>

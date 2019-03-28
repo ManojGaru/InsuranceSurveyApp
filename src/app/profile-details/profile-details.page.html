@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons end>
+      <!-- <button ion-button icon-only (click)="back()"><ion-icon name="arrow-round-back"></ion-icon></button> -->
+      <i class="fa fa-arrow-left" aria-hidden="true" style="font-size: 25px;color:white;" (click)="back()"></i>
+      <ion-title>Back</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Claim No : {{temp.insurer_claim_ref_no}}</h2>
+    </ion-card>
+
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Insured Name : {{temp.insurer_name}}</h2>
+    </ion-card>
+
+    <ion-card style="color:white;background-color:#0DA0C1;" (click)="dialNumber(temp.insurer_contact)">
+      <h2 class="text">Insured Contact : {{temp.insurer_contact}}</h2>
+    </ion-card>
+    <ion-card style="color:white;background-color:#0DA0C1;" (click)="composeMail(temp.insurer_email)">
+      <h2 class="text">Insured Email : {{temp.insurer_email}}</h2>
+    </ion-card>
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Estimate Amount : {{temp.estimate_amount}}</h2>
+    </ion-card>
+     <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">TODO Task : Survey</h2>
+    </ion-card> 
+
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Place/Location : {{temp.insurer_address}}</h2>
+    </ion-card>
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Survey Date : {{temp.survey_date}}</h2>
+    </ion-card>
+    <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Survey Time : {{temp.survey_time}}</h2>
+    </ion-card>
+
+    <!-- <ion-card style="color:white;background-color:#0DA0C1;">
+      <h2 class="text">Location No : {{temp.LocationNumber}}</h2>
+    </ion-card> -->
+
+
+    <ion-card style="color:white;background-color:#0DA0C1;" (click)="composeMail('manoj.innovious@gmail.com')">
+      <h2 class="text">Stage : {{temp.stage}}</h2>
+    </ion-card>
+    <ion-card style="color:white;background-color:#0DA0C1;" (click)="composeMail('manoj.innovious@gmail.com')">
+      <h2 class="text">Status : {{temp.status}}</h2>
+    </ion-card>
+    
+
+
+  </ion-list>
+</ion-content>

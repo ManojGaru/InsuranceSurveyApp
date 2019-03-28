@@ -1,0 +1,108 @@
+
+   <ion-header> 
+      <ion-toolbar color="primary">
+
+        <ion-title text-center>ACTION DATES</ion-title>
+      </ion-toolbar>
+     </ion-header> 
+  
+  
+  <ion-content padding>
+  
+      <form [formGroup]="actuiondateform">
+         
+          <ion-item >
+            <ion-label>Date of Loss</ion-label>
+            <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="dateofloss"></ion-datetime>
+          </ion-item>
+        
+          <ion-item >
+            <ion-label>Veh Garage Inward Date</ion-label>
+            <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="garageinward"></ion-datetime>
+         </ion-item>
+        
+            <ion-item >
+              <ion-label>Intimation To Insurer</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="insurer"></ion-datetime>
+            </ion-item>
+        
+            <ion-item >
+              <ion-label>Intimation To Police</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="police"></ion-datetime>
+            </ion-item>
+        
+            <ion-item lines="none">
+                <mat-form-field class="example-full-width">
+              <input matInput type="text" formControlName="action_idv" placeholder="IDV">
+              </mat-form-field>
+            </ion-item>
+        
+            <ion-item lines="none">
+                <mat-form-field class="example-full-width">
+              <input matInput type="text" formControlName="reserve" [(ngModel)]="reserve" placeholder="Reserve">
+              </mat-form-field>
+             </ion-item>
+        
+            <ion-item >
+              <ion-label>Expected Invoice Date</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" formControlName="invoicedate"></ion-datetime>
+            </ion-item>
+  
+            <ion-item lines="none">
+                <mat-form-field class="example-full-width">
+              <input matInput type="text" formControlName="submiting" placeholder="Expected FSR Submiting">
+            </mat-form-field>
+            </ion-item>
+  
+            <ion-item >
+              <ion-label>Appointed On</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="appointed"></ion-datetime>
+            </ion-item>
+  
+            <ion-item >
+              <ion-label>Survey Date</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="survey"></ion-datetime>
+            </ion-item>   
+                         
+            <ion-item >
+              <ion-label>Preliminary Submit Date</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" formControlName="preliminary"></ion-datetime>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Approval Remind Date</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" formControlName="approval"></ion-datetime>
+            </ion-item>
+  
+              <ion-item >
+                <ion-label>Keep Open Remind Date</ion-label>
+                <ion-datetime displayFormat="DD-MM-YYYY" formControlName="keep"></ion-datetime>
+              </ion-item>
+  
+              <ion-item >
+                <ion-label>Cut Open Remind Date</ion-label>
+                <ion-datetime displayFormat="DD-MM-YYYY" formControlName="cut"></ion-datetime>
+              </ion-item>
+  
+              <ion-item >
+                <ion-label>Before Paint Remind Date</ion-label>
+                <ion-datetime displayFormat="DD-MM-YYYY" formControlName="before"></ion-datetime>
+              </ion-item>                 
+  
+                <ion-item >
+                  <ion-label>RI-Insp Remind Date</ion-label>
+                  <ion-datetime displayFormat="DD-MM-YYYY" formControlName="ri_insp"></ion-datetime>
+                </ion-item>                     
+  
+     <!-- <div text-center>
+       <button ion-button round  icon-left color="primary" (click)="gotoinsureddetails()" >SAVE & NEXT</button>
+     </div> -->
+     <br/><br/>
+     <div text-center>
+        <button mat-raised-button color="primary" (click)="gotorepairerdetails()">BACK</button>&nbsp;&nbsp; 
+        <button mat-raised-button color="primary" (click)="gotoadmisabilitycheak()">SAVE & NEXT</button>
+   </div>
+        </form>
+  
+  </ion-content>
+  

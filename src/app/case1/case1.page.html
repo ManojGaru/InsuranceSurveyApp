@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+       <!-- <ion-title>CASE 1</ion-title>
+     -->
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content padding>
+   
+ 
+  <!-- <ion-item lines="none">
+      <ion-input placeholder="Case Ref. No"></ion-input>
+  </ion-item>
+  <ion-item>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Favorite food" >
+      </mat-form-field>
+  </ion-item>
+ 
+  <ion-item>
+      <ion-input placeholder="Insurance Claim No"></ion-input>
+  </ion-item> -->
+  <form [formGroup] = "formSearch" (ngSubmit)="search()">
+  <ion-item lines="none">
+    
+  <mat-form-field class="example-full-width">
+        <input matInput placeholder="Insurance Claim No"  formControlName="insurer_claim_ref_no">
+      </mat-form-field>
+    </ion-item>
+    <ion-item lines="none">  
+  <mat-form-field class="example-full-width">
+        <input matInput placeholder="vehicle No."  formControlName="vehicle_no">
+      </mat-form-field>
+      </ion-item>
+      <ion-item lines="none">
+  <mat-form-field class="example-full-width">
+        <input matInput placeholder="Job ID" formControlName="jobId">
+      </mat-form-field>
+      </ion-item>
+  <br/><br/>
+  <div text-center>
+        <!-- <button mat-raised-button color="primary">Primary</button> -->
+  <button mat-raised-button color="primary" (click)="gotodetails"item-right >SEARCH</button>&nbsp;&nbsp;
+  <!-- <button mat-raised-button color="primary" item-right (click)="gotoVehiclepolicydetails()">ADD NEW</button> -->
+  </div>
+</form> 
+</ion-content>

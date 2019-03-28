@@ -1,0 +1,55 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+     
+      <div class="menu_div">
+        <div style="position: relative; height: 250px;">
+            <div style="position: absolute;left: 50%;top:50%;transform: translate(-50%, -50%);">
+               <img src="../assets/imgs/icon-white.png" style="object-fit:cover;border-radius:50%;">
+                <!-- <p (click)="gotoEdit(contact)" style="text-align:center;color: #ffffff;">
+                <a href="#">Update Profile</a> -->
+                <!-- <ion-icon name="create"></ion-icon>Update Profile
+                </p>  -->
+        <p style=" text-align:center;font-size: 16px !important;color: white">Insurance Surveyor</p>
+              
+            </div>
+          </div>
+          <!-- <ion-list> -->
+              <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages" >
+                <ion-list [routerDirection]="'root'" [routerLink]="[p.url]" class="menu_list">
+                  <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                  <ion-label class="lbl">
+                    {{p.title}}
+                  </ion-label>
+                </ion-list>
+              </ion-menu-toggle>
+    
+             
+        
+              
+              
+          <div class="logout-image" (click)="logout()" style="position: absolute;
+                left: 50%;
+                top:85%;
+                transform: translate(-50%, -50%);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: 10px;
+                background-position: center;">
+            <img src="../assets/imgs/logout.png">
+            <p style=" text-align:center;font-size: 16px !important;color: white">Logout</p>
+          </div>
+          
+    
+    
+    
+    </div>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+
+

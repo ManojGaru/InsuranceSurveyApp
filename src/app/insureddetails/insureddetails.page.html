@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+     
+    <ion-title text-center>INSURED DETAILS</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content padding>
+  <form  [formGroup]="insuredDetailsForm">
+
+  <ion-item lines="none"> 
+        <mat-form-field class="example-full-width">
+      <input matInput type="text"  formControlName="insured" placeholder="Insured">
+      </mat-form-field>
+  </ion-item>
+
+  <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+      <input matInput type="textarea"  formControlName="address" placeholder="Address">
+      </mat-form-field>
+  </ion-item>
+
+  <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+      <input matInput type="number"  formControlName="contact" placeholder="conntact">
+      </mat-form-field>
+  </ion-item>
+
+  <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+      <input matInput type="text"  formControlName="email" placeholder="Email">
+      </mat-form-field>
+  </ion-item>
+  
+<ion-item lines="none">
+        <mat-form-field class="example-full-width">
+      <input matInput type="number"  formControlName="altContact" placeholder="alternate contact">
+      </mat-form-field>
+  </ion-item>
+
+
+  <br/><br/>
+
+
+  <div text-center>
+      <button mat-raised-button color="primary" (click)="gotoVehiclepolicydetails()">BACK</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" (click)="gotoRepairerdetails()">SAVE & NEXT</button>
+  </div>
+</form>
+
+
+</ion-content>

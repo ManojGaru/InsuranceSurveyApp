@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>DOC PREVIEW</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item  text-wrap *ngFor="let item of docData">
+    <ion-thumbnail slot="start">
+     <!--  <ion-img id="myImage" [src]="url"></ion-img>   "-->
+     <img src="../../assets/imgs/doc.png" />
+    </ion-thumbnail>
+    <ion-label>
+     {{item.purpose_of_docs}}
+      
+    </ion-label>
+    <ion-button slot="end" fill="clear" (click)="openDocFiles(item)">
+      <ion-icon slot="icon-only" name="eye"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-content>
