@@ -16,67 +16,6 @@ import { GlobaldatatransferService } from '../globaldatatransfer.service';
 export class ProfilePage implements OnInit {
   list1: any;
   toDOLists: any = [];
-  //   {
-  //     ClaimNo: "MOT08123456",
-  //     PlaceLocation: 'Punjagutta',
-  //     items: [
-  //       {
-  //         ClaimNo: "MOT08123456",
-  //         Insuredname: 'INS Name1',
-  //         Insuredcontact: '123456789',
-  //         TODOTask: 'Survey',
-  //         PlaceLocation: 'Punjagutta',
-  //         LocationNumber: '159753456'
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     ClaimNo: "I7M00DUL",
-  //     PlaceLocation: 'secunderabad',
-  //     items: [
-
-  //       {
-  //         ClaimNo: "I7M00DUL",
-  //         Insuredname: 'INS Name2',
-  //         Insuredcontact: '987654321',
-  //         TODOTask: 'Keep Open',
-  //         PlaceLocation: 'Secunderabad',
-  //         LocationNumber: '951852456'
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     ClaimNo: "C230018012056",
-  //     PlaceLocation: 'Begumpet',
-  //     items: [
-
-  //       {
-  //         ClaimNo: "C230018012056",
-  //         Insuredname: 'INS Name3',
-  //         Insuredcontact: '147258369',
-  //         TODOTask: 'Cut Open',
-  //         PlaceLocation: 'Begumpet',
-  //         LocationNumber: '852456753'
-  //       }
-  //     ]
-  //   },
-  //   {
-  //     ClaimNo: "37332865",
-  //     PlaceLocation: 'Gachibowli',
-  //     items: [
-
-  //       {
-  //         ClaimNo: "37332865",
-  //         Insuredname: 'INS Name4',
-  //         Insuredcontact: '963852741',
-  //         TODOTask: 'Documents',
-  //         PlaceLocation: 'Gachibowli',
-  //         LocationNumber: '785236419'
-  //       }
-  //     ]
-  //   }
-
-  // ];
 
 
   constructor(public navCtrl: NavController,
@@ -84,7 +23,7 @@ export class ProfilePage implements OnInit {
     public comonService: CommonService,
     private apiService: RestApiService,
     private nativeStorage: NativeStorage,
-    private global:GlobaldatatransferService) {
+    private global: GlobaldatatransferService) {
 
 
   }
@@ -92,20 +31,20 @@ export class ProfilePage implements OnInit {
 
 
   itemClicked(list) {
-this.global.setvalue(list);
-    // var promise = new Promise((resolve, reject) => {
-    //   resolve(this.comonService.changeData(list))
-    // });
-    // promise.then(success => {
-    //   this.router.navigate(['profile-details']);
-    // })
-    //this.comonService.changeData(list);
-    // this.router.navigate(['profile-details']);
-    // var storageData = this.nativeStorage.getItem('myItem');
-    // console.log(storageData);
+    //this.global.setvalue(list);
+    console.log(list);
+    
+    var promise = new Promise((resolve, reject) => {
+      this.global.setvalue(list)
+      resolve();
+    });
+    promise.then(success => {
+      // this.dismiss()
+      this.router.navigate(['profile-details']);
+    })
 
-    //this.router.navigate(['profile-details']);
-    this.router.navigate(['profile-details']);
+
+
   }
 
   /**

@@ -5,6 +5,7 @@ import { NavController, Platform } from '@ionic/angular';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { RestApiService } from '../rest-api.service';
 import { CommonService } from '../common.service';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 
 
@@ -82,8 +83,16 @@ export class WelcomePage implements OnInit {
     public navCtrl: NavController,
     public formbulders:FormBuilder,
     public apiService:RestApiService,
-    private comonService:CommonService) { 
+    private comonService:CommonService,
+    private nativeStorage:NativeStorage) { 
         this.getDropdown();
+        this.nativeStorage.getItem('myItem').then((success)=>{
+            console.log(success);
+            
+        },(err)=>{
+            console.log(err);
+            
+        })
        // this.commonService.backButton();
 
   }
@@ -134,7 +143,7 @@ export class WelcomePage implements OnInit {
       this.router.navigate(['case2']);
   }
   getDropdown(){
-      this.apiService.sendHttpCall('','getStage','post').subscribe(success=>{
+      this.apiService.sendHttpCall('','getStage','get').subscribe(success=>{
         //  console.log(success);
           this.select = success.data;
         //  console.log(this.select);

@@ -236,6 +236,15 @@ ion-icon {
 .mat-tab-label {
     min-width: 33%!important;
 }
+.mat-form-field {
+  display: inline-block;
+  position: relative;
+  text-align: left;
+  width: 100%!important;
+}
+.example{
+  width: 100%!important;
+      }
 
 
 ion-item {

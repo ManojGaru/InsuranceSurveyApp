@@ -31,7 +31,7 @@ export class ProfileDetailsPage implements OnInit {
 
     this.global.getvalue().then((success:any) => {
       this.temp = success.data
-      console.log(success);
+      console.log(this.temp);
       
     }, (err) => {
       console.log(err);
@@ -88,12 +88,12 @@ export class ProfileDetailsPage implements OnInit {
   }
 
   ngOnInit() {
-    this.comonservice.serviceData.subscribe((success) => {
-      this.temp = success
-      console.log('ooooooooooooooooo', this.temp);
-      // this.temp.survey_date = datePipe.transform(this.temp.survey_date, 'dd-MM-yyyy');
-      // this.temp.survey_time = datePipe.transform(this.temp.survey_date, 'h:mm a');
-    })
+    // this.comonservice.serviceData.subscribe((success) => {
+    //   this.temp = success
+    //   console.log('ooooooooooooooooo', this.temp);
+    //   // this.temp.survey_date = datePipe.transform(this.temp.survey_date, 'dd-MM-yyyy');
+    //   // this.temp.survey_time = datePipe.transform(this.temp.survey_date, 'h:mm a');
+    // })
   }
 
 }

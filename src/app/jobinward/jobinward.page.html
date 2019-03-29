@@ -3,37 +3,14 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <!-- <ion-title>Job Inward</ion-title> -->
+    <ion-title>Job Inward</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
 
-  <!-- <h1 text-center>Insurance Surveyor</h1> 
-   
-      <ion-title text-center><img style="height: 100px;width: 100px;margin-top: 10%;" src = "../../assets/imgs/primarylogo.png"></ion-title> 
-  <div style="margin-top: 20%;">
-    <div class="row">
-      <div class="column" (click)="gotoCase1()">
-        <div class="card">
-           
-            <h2 text-center>CASE 1</h2>
-        </div>
-      </div>
-     
-    
-      <div class="column" (click)="gotoCase2()">
-        <div class="card">
-            
-            <h2 text-center>CASE 2</h2>
-        </div>
-      </div>
-  </div>
-  
-
-  </div>
-       -->
   <mat-expansion-panel>
+
     <mat-expansion-panel-header>
       <mat-panel-title>
         INSURER DETAILS
@@ -41,27 +18,27 @@
     </mat-expansion-panel-header>
     <form [formGroup]="insurerDetailsForm" (ngSubmit)="insurerDetailsFormSubmit()">
       <ion-item lines="none">
-      <mat-form-field>
-        <mat-label>insurer</mat-label>
-        <mat-select  formControlName="insurer" >
-          <mat-option *ngFor="let item of insurerList" [value]="item.company_name" (click)="getDivision(item)" >
-            {{item.company_name}}
-          </mat-option>
-          <mat-option></mat-option>
-        </mat-select>
-      </mat-form-field>
-    </ion-item>
-    <ion-item lines="none">
-      <mat-form-field>
-        <mat-label>Division</mat-label>
-        <mat-select  formControlName="division" (change)="selectBranch(item)">
-          <mat-option *ngFor="let item of divionList" [value]="item.branch_name" (click)="getBrancDetails(item)">
-            {{item.branch_name}}
-          </mat-option>
-          <mat-option></mat-option>
-        </mat-select>
-      </mat-form-field>
-    </ion-item>
+        <mat-form-field>
+          <mat-label>insurer</mat-label>
+          <mat-select formControlName="insurer">
+            <mat-option *ngFor="let item of insurerList" [value]="item.company_name" (click)="getDivision(item)">
+              {{item.company_name}}
+            </mat-option>
+            <mat-option></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ion-item>
+      <ion-item lines="none">
+        <mat-form-field>
+          <mat-label>Division</mat-label>
+          <mat-select formControlName="division" (change)="selectBranch(item)">
+            <mat-option *ngFor="let item of divionList" [value]="item.branch_name" (click)="getBrancDetails(item)">
+              {{item.branch_name}}
+            </mat-option>
+            <mat-option></mat-option>
+          </mat-select>
+        </mat-form-field>
+      </ion-item>
 
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
@@ -81,7 +58,7 @@
         </mat-form-field>
       </ion-item>
 
-      
+
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
           <input matInput type="text" formControlName="apointedBy" placeholder="apointed By">
@@ -97,7 +74,8 @@
       <br><br>
       <div text-center>
 
-        <button mat-raised-button color="primary" (click)="insurerDetailsFormSubmit()">SAVE & NEXT</button>
+        <button mat-raised-button [disabled]="insurerBtn || insurerDetailsForm.invalid" color="primary"
+          (click)="insurerDetailsFormSubmit()">SAVE & NEXT</button>
       </div>
     </form>
   </mat-expansion-panel>
@@ -111,45 +89,41 @@
     <form [formGroup]="vehiclepolicyform" (ngSubmit)="vehiclepolicyformSubmit()">
 
       <ion-item>
-       
-       
+
+
         <mat-form-field class="example-full-width">
-          <input matInput type="number" placeholder="vehicle No" formControlName="vehicleno">
+          <input matInput type="text" placeholder="vehicle No" formControlName="vehicleno">
         </mat-form-field>
       </ion-item>
 
       <ion-item lines="none">
         <mat-form-field>
           <mat-label>vehicle class</mat-label>
-          <mat-select  formControlName="vehicle_class">
+          <mat-select formControlName="vehicle_class">
             <mat-option *ngFor="let item of vehicleClassList" [value]="item.class" (click)="getMaker(item)">
               {{item.class}}
             </mat-option>
-            
+
           </mat-select>
         </mat-form-field>
       </ion-item>
       <ion-item lines="none">
         <mat-form-field>
           <mat-label>Maker</mat-label>
-          <mat-select  formControlName="make">
+          <mat-select formControlName="make">
             <mat-option *ngFor="let item of makerList" [value]="item.make" (click)="getMakerDetails(item)">
               {{item.make}}
             </mat-option>
-            
+
           </mat-select>
         </mat-form-field>
       </ion-item>
 
-      <!-- <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Make" formControlName="make">
-        </mat-form-field>
-      </ion-item> -->
+
 
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
-          <input matInput type="number" formControlName="policy" placeholder="Policy No">
+          <input matInput type="text" formControlName="policy" placeholder="Policy No">
         </mat-form-field>
       </ion-item>
 
@@ -160,11 +134,7 @@
       </ion-item>
 
 
-      <!-- <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="vehicle" placeholder="Vehicle Class">
-        </mat-form-field>
-      </ion-item> -->
+
 
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
@@ -192,14 +162,19 @@
         </mat-form-field>
       </ion-item>
 
-      <ion-item>
-        <ion-label>IMT</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY " formControlName="todayimt"></ion-datetime>
+
+
+      <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" formControlName="todayimt" placeholder="IMT">
+        </mat-form-field>
       </ion-item>
+
       <br><br>
       <div text-center>
 
-        <button mat-raised-button color="primary" (click)="vehiclepolicyformSubmit()">SAVE & NEXT</button>
+        <button mat-raised-button color="primary" [disabled]="vehicleBtn || vehiclepolicyform.invalid"
+          (click)="vehiclepolicyformSubmit()">SAVE & NEXT</button>
       </div>
     </form>
   </mat-expansion-panel>
@@ -247,7 +222,8 @@
       <br><br>
       <div text-center>
 
-        <button mat-raised-button color="primary" (click)="insuredDetailsFormSubmit()">SAVE & NEXT</button>
+        <button mat-raised-button color="primary" [disabled]="insuredBtn || insuredDetailsForm.invalid"
+          (click)="insuredDetailsFormSubmit()">SAVE & NEXT</button>
       </div>
     </form>
   </mat-expansion-panel>
@@ -260,9 +236,42 @@
     </mat-expansion-panel-header>
     <form [formGroup]="repairerdetailsform" (ngSubmit)="repairerdetailsformSubmit()">
 
+
+
       <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="name" placeholder="Name">
+        <mat-form-field>
+          <mat-label>Company Name</mat-label>
+          <mat-select formControlName="name">
+            <mat-option *ngFor="let item of repairerList" [value]="item.company_name"
+              (click)="getRepairerBranchList(item)">
+              {{item.company_name}}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </ion-item>
+      <ion-item lines="none">
+        <mat-form-field>
+          <mat-label>Branch/Location</mat-label>
+          <mat-select formControlName="repairerbranch">
+            <mat-option *ngFor="let item of repairerBranchList" [value]="item.branch_name"
+              (click)="getRepairerBranchAdvisorList(item)">
+              {{item.branch_name}}
+            </mat-option>
+
+          </mat-select>
+        </mat-form-field>
+      </ion-item>
+      <ion-item lines="none">
+        <mat-form-field>
+          <mat-label>Advisors</mat-label>
+          <mat-select formControlName="advisorname">
+            <mat-option *ngFor="let item of repairerBranchAdvisorList" [value]="item.advisor_name"
+              (click)="getRepairerBranchAdvisorDetails(item)">
+              {{item.advisor_name}}
+            </mat-option>
+
+          </mat-select>
         </mat-form-field>
       </ion-item>
 
@@ -272,11 +281,6 @@
         </mat-form-field>
       </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="advisorname" placeholder="Advisor Name">
-        </mat-form-field>
-      </ion-item>
 
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
@@ -290,24 +294,7 @@
         </mat-form-field>
       </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="number" formControlName="jobcardno" placeholder="Job Card-No">
-        </mat-form-field>
-      </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="branch" placeholder="Branch/Location">
-        </mat-form-field>
-      </ion-item>
-
-      <ion-item lines="none">
-        <ion-label>Estimate Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY " formControlName="estimatedate"></ion-datetime>
-        <!-- Amount
-      <ion-input type="number" formControlName="estimateamt" placeholder="INR"></ion-input> -->
-      </ion-item>
       <ion-item lines="none">
         <mat-form-field class="example-full-width">
           <!-- <ion-label>Amount</ion-label> -->
@@ -316,9 +303,17 @@
       </ion-item>
 
 
+
       <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="managername" placeholder="Manager Name">
+        <mat-form-field>
+          <mat-label>Managers</mat-label>
+          <mat-select formControlName="managername">
+            <mat-option *ngFor="let item of branchManagerList" [value]="item.manager_name"
+              (click)="getRepairerBranchManagerDetails(item)">
+              {{item.manager_name}}
+            </mat-option>
+
+          </mat-select>
         </mat-form-field>
       </ion-item>
 
@@ -334,18 +329,15 @@
         </mat-form-field>
       </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="supplimentary" placeholder="Scope For Supplimentary">
-        </mat-form-field>
-      </ion-item>
+
 
 
 
       <br><br>
       <div text-center>
 
-        <button mat-raised-button color="primary" (click)="repairerdetailsformSubmit()">SAVE & NEXT</button>
+        <button mat-raised-button color="primary" [disabled]="repairerBtn || repairerdetailsform.invalid"
+          (click)="repairerdetailsformSubmit()">SAVE & NEXT</button>
       </div>
     </form>
 
@@ -371,36 +363,16 @@
 
       <ion-item>
         <ion-label>Intimation To Insurer</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="insurer"></ion-datetime>
+        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="intimation_insurer"></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label>Intimation To Police</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="police"></ion-datetime>
+        <ion-datetime displayFormat="DD-MM-YYYY HH:mm:a" formControlName="intimation_police"></ion-datetime>
       </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="action_idv" placeholder="IDV">
-        </mat-form-field>
-      </ion-item>
 
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="reserve" [(ngModel)]="reserve" placeholder="Reserve">
-        </mat-form-field>
-      </ion-item>
 
-      <ion-item>
-        <ion-label>Expected Invoice Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="invoicedate"></ion-datetime>
-      </ion-item>
-
-      <ion-item lines="none">
-        <mat-form-field class="example-full-width">
-          <input matInput type="text" formControlName="submiting" placeholder="Expected FSR Submiting">
-        </mat-form-field>
-      </ion-item>
 
       <ion-item>
         <ion-label>Appointed On</ion-label>
@@ -413,43 +385,83 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Preliminary Submit Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="preliminary"></ion-datetime>
+        <ion-label>Estimate Date</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="estimatedate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Estimate Amount</ion-label>
+        <ion-datetime type="number" formControlName="estimateamount"></ion-datetime>
+      </ion-item>
+      <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+          <input matInput type="number" formControlName="estimateamount" placeholder="Estimate Amount"
+            (keyup)="getSageResult($event.target.value)">
+        </mat-form-field>
+      </ion-item>
+      <ion-item lines="none">
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" formControlName="stage" placeholder="Stage">
+        </mat-form-field>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Approval Remind Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="approval"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Keep Open Remind Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="keep"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Cut Open Remind Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="cut"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Before Paint Remind Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="before"></ion-datetime>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>RI-Insp Remind Date</ion-label>
-        <ion-datetime displayFormat="DD-MM-YYYY" formControlName="ri_insp"></ion-datetime>
-      </ion-item>
 
 
       <br><br>
       <div text-center>
 
-        <button mat-raised-button color="primary" (click)="actuiondateformSubmit()">SAVE & NEXT</button>
+        <button mat-raised-button color="primary" [disabled]="actionDatesBtn || actuiondateform.invalid"
+          (click)="actuiondateformSubmit()">SAVE & NEXT</button>
       </div>
     </form>
 
   </mat-expansion-panel>
+  <br>
+  <br>
 
+  <ion-item lines="none">
+    <mat-form-field>
+      <mat-label>Select Job Type</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of jobTypeList" [value]="item.type" (click)="selectJobType(item)">
+          {{item.type}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </ion-item>
+  <ion-item lines="none">
+    <mat-form-field class="example-full-width">
+      <input matInput type="email" placeholder="Insurer Claim Ref No" [(ngModel)]="claim_ref_no"
+        (keyup)="getRefNo(claim_ref_no)">
+    </mat-form-field>
+  </ion-item>
+
+  <!-- <ion-item lines="none">
+    <mat-form-field>
+      <mat-label>Select Comapny</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of companyList" [value]="item.full_name" (click)="selectCompany(item)">
+          {{item.full_name}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </ion-item>
+  <br><br>
+  <ion-item lines="none">
+    <mat-form-field>
+      <mat-label>Select Manger</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let item of managerList" [value]="item.full_name" (click)="selectManger(item)">
+          {{item.full_name}}
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </ion-item> -->
+
+  <br><br>
+
+  <button class="example" mat-raised-button color="primary" [disabled]="!finalBtn" (click)="finalSubmit()">FINAL
+    SUBMIT</button>
 </ion-content>

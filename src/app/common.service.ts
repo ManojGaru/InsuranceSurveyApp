@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { common, submitData } from './models/common';
-import { AlertController, MenuController } from '@ionic/angular';
+import { AlertController, MenuController, LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +12,14 @@ export class CommonService {
   list:any=[];
   counter:number = 0;
   alert:any;
+  isLoading:boolean = false;
   constructor(private router:Router, 
     public alertController: AlertController,
     public menu: MenuController,
+    private loadingCtrl:LoadingController
     ) {}
   private dataSource = new BehaviorSubject(new common());
-  private dataSourceToDo = new Subject<any>();
+  private dataSourceToDo = new BehaviorSubject(new common());
   private submitdataSource = new BehaviorSubject([new submitData()]);
 
   serviceData = this.dataSource.asObservable();
@@ -34,6 +36,12 @@ export class CommonService {
    
     console.log(data);
   }
+  changeDataToDo(data: any):any {
+  
+    this.dataSourceToDo.next(data);
+    console.log(data);
+  }
+
 
     message(msg:string){
     this.alert =  this.alertController.create({
@@ -55,6 +63,24 @@ export class CommonService {
     });
 
     // return this.alert.present();
+  }
+
+   present() {
+    this.isLoading = true;
+
+     this.loadingCtrl.create({
+    }).then(a => {
+      a.present().then(() => {
+      });
+
+    });
+
+  }
+
+   dismiss() {
+    this.isLoading = false;
+    this.loadingCtrl.dismiss();
+    console.log('dismissed');
   }
 
 
